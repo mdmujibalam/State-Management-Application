@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import "../css/App.css";
 import { store } from "../redux/store";
 import { useDispatch, useSelector } from "react-redux";
+import { decreaseByOne, decreaseByValue, increaseByOne, increaseByValue } from "../redux/actions/counterAction";
 
 function MyApp() {
   // const [count, setCount] = useState(0);
@@ -12,24 +13,28 @@ function MyApp() {
 
   const handleClickIncreaseByOne = () => {
     // setCount(count + 1);
-    dispatch({ type: "INCREASE_BY_ONE" });
+    //dispatch({ type: "INCREASE_BY_ONE" });
+    dispatch(increaseByOne());
   };
 
   const handleClickDecreaseByOne = () => {
     //  setCount(count - 1);
-    dispatch({ type: "DECREASE_BY_ONE" });
+    //dispatch({ type: "DECREASE_BY_ONE" });
+    dispatch(decreaseByOne());
   };
 
   const handleClickIncreaseByValue = () => {
     //setCount((count) => count + parseInt(value));
     let val = parseInt(value);
-    dispatch({ type: "INCREASE_BY_VALUE", value: val });
+    //dispatch({ type: "INCREASE_BY_VALUE", value: val });
+    dispatch(increaseByValue(val));
   };
 
   const handleClickDecreaseByValue = () => {
     // setCount((count) => count - parseInt(value));
     let val = parseInt(value);
-    dispatch({ type: "DECREASE_BY_VALUE", value: val });
+    //dispatch({ type: "DECREASE_BY_VALUE", value: val });
+    dispatch(decreaseByValue(val));
   };
 
   const handleChange = (e) => {
